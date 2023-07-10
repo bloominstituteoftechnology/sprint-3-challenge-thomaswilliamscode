@@ -126,12 +126,37 @@
 
       }
       
-      //      * Shooting on empty or with the safety on, returns the string "Click!"
+      
       // 🧠 Instances have a `reload` method that takes a number and tops up the instance by that number
-      //      * Reloading returns a string in the following format: "<number> projectiles left!"
-      //      * Reloading by more than capacity fills the instance to capacity
-      //      * Passing an argument which is not a number larger than zero returns the string "Error reloading!"
+      reload ( num ) {
+        //      * Passing an argument which is not a number larger than zero returns the string "Error reloading!"
+        if ( num <= 0 ) {
+          return "Error reloading!"
+        }
+
+        //      * Reloading by more than capacity fills the instance to capacity
+
+        //      * Reloading returns a string in the following format: "<number> projectiles left!"
+        else if ( this.total < num ) {
+          this.ammo = this.total;
+          `${this.ammo} projectiles left!`
+        } else {
+          this.ammo = num;
+          `${this.ammo} projectiles left!`
+        }
+        
+      }
+      
       // 🧠 Instances have a `toggleSafety` method that takes no arguments and switches the state of the safety
+      toggleSafety () {
+        if ( this.safety === 'on' ) {
+          this.safety = 'off'
+          return "Safety disabled!"
+        } else {
+          this.safety = 'on'
+          return "Safety enabled!"
+        }
+      }
       //      * When engaging the safety, return "Safety enabled!"
       //      * When disengaging the safety, return "Safety disabled!"
       // 🌟 HINT: instances need to keep track of their maximum capacity as well as their current capacity
