@@ -139,10 +139,10 @@
         //      * Reloading returns a string in the following format: "<number> projectiles left!"
         else if ( this.total < num ) {
           this.ammo = this.total;
-          `${this.ammo} projectiles left!`
+          return `${this.ammo} projectiles left!`
         } else {
           this.ammo = num;
-          `${this.ammo} projectiles left!`
+          return `${this.ammo} projectiles left!`
         }
         
       }
