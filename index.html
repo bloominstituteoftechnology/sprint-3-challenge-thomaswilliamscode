@@ -130,17 +130,18 @@
       // 🧠 Instances have a `reload` method that takes a number and tops up the instance by that number
       reload ( num ) {
         //      * Passing an argument which is not a number larger than zero returns the string "Error reloading!"
-        if ( num <= 0 ) {
+        if  ( ( num <=  0 ) || ( this.total === this.ammo) ) {
           return "Error reloading!"
         }
 
         //      * Reloading by more than capacity fills the instance to capacity
 
         //      * Reloading returns a string in the following format: "<number> projectiles left!"
-        else if ( this.total < num ) {
+        else if ( ( this.ammo + num ) > this.total ) {
           this.ammo = this.total;
           return `${this.ammo} projectiles left!`
         } else {
+          
           this.ammo = num;
           return `${this.ammo} projectiles left!`
         }
