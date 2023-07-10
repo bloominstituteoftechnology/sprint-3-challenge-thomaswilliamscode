@@ -86,13 +86,19 @@
         return newArray;
       }
       // 🧠 Implement a `getAllReversed` method which returns the ints in reverse order
+      getAllReversed () {
+        let newArray = [];
+        for ( let i = this.ints.length - 1; i >= 0; i-- ) {
+          newArray.push( this.ints[i] )
+        }
+        return newArray;
+      }
       // ❗ WARNING: except for `getAllReversed`, methods must respect the order of the integers
       // ❗ WARNING: note that none of the methods actually mutate the `ints` property
 
     }
 
-    let test = new Integers ( 2, 4, 6, 3, 1, 5, 0, 10 )
-    console.log( test.getAllSquared () )
+    
 
     // 👉 CHALLENGE 2 NerfGun
     class NerfGun {
