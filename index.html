@@ -178,23 +178,14 @@
       //      * It takes no args and returns the next page of the book
       //      * If the next page is empty because we have reached the end, return null instead
       next () {
-        console.log('\n')
-        console.log('New Test')
-        console.log('Whole Text Of Book: ' + this.bookString)
-        console.log('Number Of Characters On Page: ' + this.charNumbers)
         if ( this.bookString.length === 0 ) {
           return null;
         }
         let splitBook = this.bookString.split('')
-        console.log(splitBook)
         let page = splitBook.slice( ( this.Page * this.charNumbers ) , this.charNumbers)
-
         let restOfBook = splitBook.slice ( this.charNumbers )
-        console.log('RestOfBook: ' + restOfBook)
         this.bookString = restOfBook.join('')
-        
         this.page++
-        console.log(page)
         let pageJoined = page.join('')
         return (pageJoined)
       }
