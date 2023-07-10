@@ -182,6 +182,9 @@
         console.log('New Test')
         console.log('Whole Text Of Book: ' + this.bookString)
         console.log('Number Of Characters On Page: ' + this.charNumbers)
+        if ( this.bookString.length === 0 ) {
+          return null;
+        }
         let splitBook = this.bookString.split('')
         console.log(splitBook)
         let page = splitBook.slice( ( this.Page * this.charNumbers ) , this.charNumbers)
