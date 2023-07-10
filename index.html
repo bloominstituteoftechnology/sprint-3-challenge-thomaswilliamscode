@@ -203,8 +203,16 @@
     // 👉 CHALLENGE 4 AntFarm
     class AntFarm {
       // 🧠 Constructor takes **any** number of arguments, which are strings: the names of your ants
+      constructor ( ...names ) {
+          this.ants = names.map ( name => {
+            return { name: name, health: 100 }
+          } )
+      }
       // 🧠 Instances of AntFarm have an `ants` property holding an array of ants:
+      
+      
       //      * Each ant is an object with a `name` prop and a `health` prop that starts at 100
+      
       // 🧠 Instances of AntFarm have a `work` method:
       //      * When invoked your ants do chores at a cost of 20 health points each
       //      * The method takes no arguments and returns the string "<ant number> ants starting work!"
@@ -233,7 +241,12 @@
       // 👉 HINT: if you are not feeling confident with map and filter, solve the problem with for loops,
       //      and with the piece of mind of all tests passing, refactor to use map/filter
 
+      
+
     }
+
+    let antTest = new AntFarm ( 'Thomas', 'Jared', 'Kenny' )
+    console.log(antTest)
 
     // 🧪 TESTS, do not make any changes below this line ===================
     // 🧪 TESTS, do not make any changes below this line ===================
