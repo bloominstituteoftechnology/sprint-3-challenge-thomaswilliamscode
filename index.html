@@ -245,10 +245,23 @@
       
       
 
-      //      * If `ants` contains no ants, the method returns "No ants here. Did you work them to death?"
+      
       // 🧠 Instances of AntFarm have a `feed` method:
+
       //      * The method takes as its only argument the name of the particular ant(s) to feed
-      //      * When invoked, the ant(s) by the given name obtain a health increase of 15 points
+      feed ( name ) {
+      //      * When invoked, the ant(s) by the given name obtain a health increase of 15 points 
+      this.ants.forEach ( ( ant ) => {
+        console.log( ant )
+        if ( ant.name === name ) {
+          ant.health += 15
+          return "Yum!"
+        }
+      } )
+
+      
+      }
+
       //      * The method returns the string "Yum!" if any ants by the given name exist
       //      * The method returns the string "<ant name> not found!" if no ants by the given name exist
       // 🌟 Example:
