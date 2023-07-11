@@ -217,30 +217,39 @@
       work () {
         let healthyAnts = []
         
-        this.ants.forEach ( (ant) => {
+        this.ants.forEach ( ( ant, index ) => {
           
           
           //      * When invoked your ants do chores at a cost of 20 health points each
-          ant.health = ant.health - 20
+          
           
             //      * If the `health` of any ant decreases to zero or below, it dies and is removed from `ants`
           if ( ant.health > 0 ) {
             healthyAnts.push(ant)
             
           }
+          ant.health = ant.health - 20
+          if ( ant.health <= 0 ) {
+            this.ants = this.ants.filter ( ant => ant.health > 0 )
+            
+          }
           
 
           //      * If `ants` contains no ants, the method returns "No ants here. Did you work them to death?"
-          if ( this.ants === [] ) {
-            return "No ants here. Did you work them to death?"
-          }
             //      * The method takes no arguments and returns the string "<ant number> ants starting work!"
-          if ( ant.health > 0 ) {
-            return `${healthyAnts.length} ants starting work!`
-          } 
 
         })
-        this.ants = healthyAnts
+        
+
+
+        
+        if ( healthyAnts.length > 0 ) {
+          return `${healthyAnts.length} ants starting work!`
+        } else {
+          return "No ants here. Did you work them to death?"
+        }
+
+        
         
       }
       
