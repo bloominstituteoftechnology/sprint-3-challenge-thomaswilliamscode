@@ -216,6 +216,7 @@
       // 🧠 Instances of AntFarm have a `work` method:
       work () {
         let healthyAnts = []
+        
         this.ants.forEach ( (ant) => {
           
           
@@ -235,7 +236,7 @@
           }
             //      * The method takes no arguments and returns the string "<ant number> ants starting work!"
           if ( ant.health > 0 ) {
-            return `${this.ants.length} ants starting work!`
+            return `${healthyAnts.length} ants starting work!`
           } 
 
         })
@@ -251,18 +252,27 @@
       //      * The method takes as its only argument the name of the particular ant(s) to feed
       feed ( name ) {
       //      * When invoked, the ant(s) by the given name obtain a health increase of 15 points 
-      this.ants.forEach ( ( ant ) => {
-        console.log( ant )
-        if ( ant.name === name ) {
-          ant.health += 15
-          return "Yum!"
+        let found = false
+        this.ants.forEach( ( ant ) => {
+          if ( name === ant.name ) {
+            ant.health += 15
+            found = true
+          }
+        } )
+        if ( found ) {
+          return 'Yum!'
+        } else {
+          return `${name} not found!`
         }
-      } )
+        
+      } 
+
+
 
       
-      }
+      
 
-      //      * The method returns the string "Yum!" if any ants by the given name exist
+
       //      * The method returns the string "<ant name> not found!" if no ants by the given name exist
       // 🌟 Example:
       //      const farm = new AntFarm('Jess', 'Blake');
